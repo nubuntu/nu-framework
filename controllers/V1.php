@@ -3,72 +3,94 @@
 class V1 extends NuApi{
 
     /**
-     *
      * @apiDefine NoAPIKey
      * @apiError No apikey defined in header.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 400 No apikey defined in header
-     *
+     */
+
+    /**
      * @apiDefine APIKeyInvalid
      * @apiError Invalid apikey.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 401 Invalid apikey
-     *
+     */
+
+    /**
      * @apiDefine NoToken
      * @apiError No token defined.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 401 No token defined
-     *
-     * @apiDefine APIKeyInvalid
-     * @apiError Invalid apikey.
+     */
+
+    /**
+     * @apiDefine TokenInvalid
+     * @apiError Invalid Token.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 401 Token invalid or expired
-     *
+     */
+
+    /**
      * @apiDefine CategoryUpdateFail
      * @apiError Failed to update category.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to update category
-     *
+     */
+
+    /**
      * @apiDefine CategoryDeleteFail
      * @apiError Failed to delete category.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to delete category
-     *
+     */
+
+    /**
      * @apiDefine CategoryInsertFail
      * @apiError Failed to insert new category.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to insert new category
-     *
+     */
+
+    /**
      * @apiDefine ProductUpdateFail
      * @apiError Failed to update product.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to update product
-     *
+     */
+
+    /**
      * @apiDefine ProductDeleteFail
      * @apiError Failed to delete product.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to delete product
-     *
+     */
+
+    /**
      * @apiDefine ProductInsertFail
      * @apiError Failed to insert new category.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to insert new category
-     *
+     */
+
+    /**
      * @apiDefine ItemUpdateFail
      * @apiError Failed to update item.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to update item
-     *
+     */
+
+    /**
      * @apiDefine ItemDeleteFail
      * @apiError Failed to delete item.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to delete item
-     *
+     */
+
+    /**
      * @apiDefine ItemInsertFail
      * @apiError Failed to insert new item.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 500 Failed to insert new item
-     *
      */
     
     protected $model;
@@ -115,6 +137,17 @@ class V1 extends NuApi{
          *
          */
         parent::auth();
+    }
+
+    protected function is_valid()
+    {
+        /**
+         *
+         * @apiUse NoToken
+         * @apiUse TokenInvalid
+         *
+         */
+        return parent::is_valid();
     }
 
     /*
@@ -246,6 +279,8 @@ class V1 extends NuApi{
          *           "error": false
          *       }
          *
+         * @apiUse CategoryUpdateFail
+         *
          */
 
         /**
@@ -280,6 +315,8 @@ class V1 extends NuApi{
          *           "error": false
          *       }
          *
+         * @apiUse CategoryInsertFail
+         *
          */
 
         /**
@@ -304,6 +341,8 @@ class V1 extends NuApi{
          *           "message": "f239b88c2959cd112b01e472b29ff71b deleted...",
          *           "error": false
          *       }
+         *
+         * @apiUse CategoryDeleteFail
          *
          */
 
