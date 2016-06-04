@@ -1,0 +1,12 @@
+<?php
+
+$config         =   [
+                        'db' => [
+                            'host'      => 'localhost',
+                            'user'      => 'username',
+                            'pass'      => 'password',
+                            'database'  => 'dbname',
+                            'prefix'    => 'nu_'
+                        ],
+                        'secret'    => 'thekey'
+                    ];
