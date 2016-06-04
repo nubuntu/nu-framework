@@ -1,0 +1,7 @@
+{
+    "name": "Test API",
+    "version": "1.0.0",
+    "description": "apiDoc basic example",
+    "title": "Salestock Test API",
+    "url" : "http://api.salestock.noercholis.com/v1"
+}
