@@ -22,7 +22,7 @@ function __autoload($class)
 
 }
 
-$app = new NuApp();
+$app = new NuApp($config);
 $app->run();
 
 

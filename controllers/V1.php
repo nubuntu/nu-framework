@@ -1,6 +1,6 @@
 <?php
 
-class V1 extends NuAPI{
+class V1 extends NuApi{
 
     /**
      *
