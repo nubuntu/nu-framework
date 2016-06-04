@@ -19,8 +19,8 @@ class V1 extends NuAPI{
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 401 No token defined
      *
-     * @apiDefine APIKeyInvalid
-     * @apiError Invalid apikey.
+     * @apiDefine TokenInvalid
+     * @apiError Invalid Token.
      * @apiErrorExample {json} Error-Response:
      *    HTTP/1.1 401 Token invalid or expired
      *
@@ -115,6 +115,17 @@ class V1 extends NuAPI{
          *
          */
         parent::auth();
+    }
+
+    protected function is_valid()
+    {
+        /**
+         *
+         * @apiUse NoToken
+         * @apiUse TokenInvalid
+         *
+         */
+        return parent::is_valid();
     }
 
     /*
@@ -246,6 +257,8 @@ class V1 extends NuAPI{
          *           "error": false
          *       }
          *
+         * @apiUse CategoryUpdateFail
+         *
          */
 
         /**
@@ -280,6 +293,8 @@ class V1 extends NuAPI{
          *           "error": false
          *       }
          *
+         * @apiUse CategoryInsertFail
+         *
          */
 
         /**
@@ -304,6 +319,8 @@ class V1 extends NuAPI{
          *           "message": "f239b88c2959cd112b01e472b29ff71b deleted...",
          *           "error": false
          *       }
+         *
+         * @apiUse CategoryDeleteFail
          *
          */
 
