@@ -1,7 +1,7 @@
 {
     "name": "Test API",
     "version": "1.0.0",
-    "description": "apiDoc basic example",
+    "description": "Documentation of API from https://github.com/nubuntu/nu-framework",
     "title": "Salestock Test API",
-    "url" : "http://api.salestock.noercholis.com/v1"
+    "url" : "http://api.salestock.noercholis.com"
 }
