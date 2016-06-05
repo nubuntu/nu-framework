@@ -56,6 +56,11 @@ class Tester extends NuController{
         return $this->curl($command,'DELETE',$data);
     }
 
+    protected function load_view($viewname,$data=[]){
+        $content        = $this->load->view($viewname,$data,true);
+        $this->load->view('index',['content'=>$content]);
+    }
+
     public function index(){
         $this->auth();
     }
@@ -66,18 +71,10 @@ class Tester extends NuController{
                     ]),true);
         $token      = $response['data']['token'];
         $this->session->set('token',$token);
-        $html       = <<<EOT
-        <h1>GET /v1/auth</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        apikey : %s
-        <h3>Response</h3>
-        <pre>%s</pre>
-        your new token is {$token}<br/>
-        we save that token from now in session, for later use if we need to call other request<br/>
-        next, go to <a href='/tester/category_list'><strong>category list</strong></a>
-EOT;
-        echo sprintf($html,$this->config['apikey'],print_r($response,true));
+        $this->load_view('auth',[
+            'config'        => $this->config,
+            'response'      => $response
+        ]);
     }
 
     public function category_list(){
@@ -87,17 +84,12 @@ EOT;
                     ]),true);
         $id_category    = $response['data'][0]['id_category'];
         $category_name  = $response['data'][0]['category_name'];
-        $html       = <<<EOT
-        <h1>GET /v1/category</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}
-        <h3>Response</h3>
-        <pre>%s</pre>
-        let we choose first category ({$id_category}) to see detail and product<br/>
-        next, go to <a href='/tester/category/{$id_category}'><strong>category {$category_name}</strong></a>
-EOT;
-        echo sprintf($html,print_r($response,true));
+        $this->load_view('category_list',[
+            'token'         => $token,
+            'response'      => $response,
+            'id_category'   => $id_category,
+            'category_name' => $category_name
+        ]);
     }
 
     public function category($id_category){
@@ -110,29 +102,17 @@ EOT;
         $categories = json_decode($this->get('/v1/category/',[
             'header'    => ['token'=>$token]
         ]),true);
-        $select     = '<select name="category_parent">';
+        $select     = '<select name="category_parent" class="form-control">';
         foreach ($categories['data'] as $category){
             $select.= '<option value="'.$category['id_category'].'">'.$category['category_name'].'</option>';
         }
         $select     .= '</select>';
-
-
-        $html       = <<<EOT
-        <h1>GET /v1/category/{$id_category}</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}
-        <h3>Response</h3>
-        <pre>%s</pre>
-        ok, you got category detail and product right now<br/>
-        now let we try add new category, just fill the form bellow<br/>
-        <form method='post' action='/tester/category_create'>
-            Name    : <input name='category_name' type='text'/><br/>
-            Parent  : %s <br/>
-            <input type="submit" value="Submit"/>
-        </form>
-EOT;
-        echo sprintf($html,print_r($response,true),$select);
+        $this->load_view('category',[
+            'token'         => $token,
+            'response'      => $response,
+            'id_category'   => $id_category,
+            'select'        => $select
+        ]);
     }
 
     public function category_create(){
@@ -147,20 +127,13 @@ EOT;
             die("Sorry, something error happen, please back and try again");
 
         $id_category    = $response['data']['id_category'];
-        $html       = <<<EOT
-        <h1>POST /v1/category</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong><br/> 
-        token : {$token} <br/>
-        <strong>HTTP_POST</strong><br/> 
-        category_name : %s <br/>
-        category_parent : %s <br/>
-        <h3>Response</h3>
-        <pre>%s</pre>
-        Nice.., you just created new category, and the id_category is {$id_category}<br/>
-        so, let we check is it right or not <a href="/tester/category_check/{$id_category}">/v1/category/{$id_category}</a><br/>
-EOT;
-        echo sprintf($html,$this->input->post('category_name'),$this->input->post('category_parent'),print_r($response,true));
+        $this->load_view('category_create',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_category'       => $id_category,
+            'category_name'     => $this->input->post('category_name'),
+            'category_parent'   => $this->input->post('category_parent')
+        ]);
     }
 
     public function category_check($id_category){
@@ -169,21 +142,14 @@ EOT;
             'header'    => ['token'=>$token]
         ]),true);
 
-        $html       = <<<EOT
-        <h1>GET /v1/category/{$id_category}</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}
-        <h3>Response</h3>
-        <pre>%s</pre>
-        yeah, you're awesome.... new category has ben added and displayed here<br/>
-        how about if you edit this category?, I think the name is not too cool<br/>
-        <form method='post' action='/tester/category_update/%s'>
-            Name    : <input name='category_name' type='text' value='%s'/><br/>
-            <input type="submit" value="Submit"/>
-        </form>
-EOT;
-        echo sprintf($html,print_r($response,true),$response['data']['id_category'],$response['data']['category_name']);
+        $id_category    = $response['data']['id_category'];
+        $category_name  = $response['data']['category_name'];
+        $this->load_view('category_check',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_category'       => $id_category,
+            'category_name'     => $category_name
+        ]);
     }
 
     public function category_update($id_category){
@@ -198,18 +164,13 @@ EOT;
             die("Sorry, something error happen, please back and try again");
 
         $id_category    = $response['data']['id_category'];
-        $html       = <<<EOT
-        <h1>POST /v1/category/{$id_category}</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong><br/> 
-        token : {$token} <br/>
-        <strong>HTTP_POST</strong><br/> 
-        category_name : %s <br/>
-        <h3>Response</h3>
-        <pre>%s</pre>
-        Oh... that worst, more better if you just <a href="/tester/category_delete/{$id_category}">delete it</a><br/>
-EOT;
-        echo sprintf($html,$this->input->post('category_name'),print_r($response,true));
+        $category_name  = $response['data']['category_name'];
+        $this->load_view('category_update',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_category'       => $id_category,
+            'category_name'     => $category_name
+        ]);
     }
 
     public function category_delete($id_category){
@@ -222,17 +183,11 @@ EOT;
         if($response['error'])
             die("Sorry, something error happen, please back and try again");
 
-        $html       = <<<EOT
-        <h1>DELETE /v1/category/{$id_category}</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong><br/> 
-        token : {$token} <br/>
-        <h3>Response</h3>
-        <pre>%s</pre>
-        good job, I think we are done with this category<br/>
-        you can go back and repeat it if you want, or move on to <a href="/tester/product_list">product list</a></br>
-EOT;
-        echo sprintf($html,print_r($response,true));
+        $this->load_view('category_delete',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_category'       => $id_category
+        ]);
     }
 
     public function product_list(){
@@ -243,17 +198,12 @@ EOT;
 
         $id_product  = $response['data'][0]['id_product'];
         $product_name= $response['data'][0]['product_name'];
-        $html       = <<<EOT
-        <h1>GET /v1/product</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}
-        <h3>Response</h3>
-        <pre>%s</pre>
-        let we choose first product ({$id_product}) to see detail and items<br/>
-        next, go to <a href='/tester/product/{$id_product}'><strong>product {$product_name} </strong></a>
-EOT;
-        echo sprintf($html,print_r($response,true));
+        $this->load_view('product_list',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_product'        => $id_product,
+            'product_name'      => $product_name
+        ]);
     }
 
     public function product($id_product){
@@ -262,24 +212,11 @@ EOT;
             'header'    => ['token'=>$token]
         ]),true);
 
-
-        $html       = <<<EOT
-        <h1>GET /v1/product/{$id_product}</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}
-        <h3>Response</h3>
-        <pre>%s</pre>
-        ok, you got product detail and variants right now<br/>
-        now search anything you want by fill the form bellow, trust me it's works<br/>
-        <form method='post' action='/tester/product_search'>
-            Color    : <input name='color' type='text' placeholder='black,white,red,etc'/><br/>
-            Size     : <input name='size' type='text' placeholder='s,m,x,etc'/><br/>
-            Price Range  : <input name='price_min' type='text' placeholder='100000'/> to <input name='price_max' type='text' placeholder='200000'/><br/>
-            <input type="submit" value="Submit"/>
-        </form>
-EOT;
-        echo sprintf($html,print_r($response,true));
+        $this->load_view('product',[
+            'token'             => $token,
+            'response'          => $response,
+            'id_product'        => $id_product
+        ]);
     }
 
     public function product_search(){
@@ -297,18 +234,10 @@ EOT;
             'post'      => $post
         ]),true);
 
-        $html       = <<<EOT
-        <h1>POST /v1/product</h1>
-        <h3>Parameter</h3>
-        <strong>HTTP_HEADER</strong></br> 
-        token : {$token}<br/>
-        <strong>HTTP_POST</strong></br> 
-        %s<br/>
-        <h3>Response</h3>
-        <pre>%s</pre>
-        yeah, you just finished wizard, thank's for your patience and see you later <br/>
-        === The End ====
-EOT;
-        echo sprintf($html,print_r($post,true),print_r($response,true));
+        $this->load_view('product_search',[
+            'token'             => $token,
+            'response'          => $response
+        ]);
+
     }
 }
