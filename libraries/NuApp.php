@@ -65,7 +65,7 @@ class NuApp{
                 $this->uri[0]       = $this->config['default_controller'];
 
         $controller_name        = array_shift($this->uri);
-        $controller_class       = strtoupper($controller_name);
+        $controller_class       = ucfirst($controller_name);
         $controller             = new $controller_class();
         $action                 = array_shift($this->uri);
         if(!method_exists($controller,$action))
