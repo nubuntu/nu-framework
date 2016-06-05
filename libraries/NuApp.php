@@ -59,15 +59,20 @@ class NuApp{
 
         # no controller defined
         if(count($this->uri)<1 || $this->uri[0]=='')
-            $this->response(404,'Hi, this is Nu Framework, you are in 404 area');
+            if(!isset($this->config['default_controller']))
+                $this->response(404,'Hi, this is Nu Framework, you are in 404 area');
+            else
+                $this->uri[0]       = $this->config['default_controller'];
 
         $controller_name        = array_shift($this->uri);
         $controller_class       = strtoupper($controller_name);
         $controller             = new $controller_class();
         $action                 = array_shift($this->uri);
         if(!method_exists($controller,$action))
-            $this->error(404,'Ooops, Where are you goin, It\'s wrong way...' );
-
+            if(!method_exists($controller,'index'))
+                $this->response(404,'Ooops, Where are you goin, It\'s wrong way...' );
+            else
+                $action         = 'index';
         $reflection = new ReflectionMethod($controller, $action);
         if (!$reflection->isPublic()) {
             $this->response(403,'Oh no..., You\'re not allowed to enter my private area, Get Out!');

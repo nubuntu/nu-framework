@@ -8,8 +8,9 @@ $config         =   [
                             'database'  => 'dbname',
                             'prefix'    => 'nu_'
                         ],
-                        'secret'    => 'thekey',
-                        'memcache'  => [
+                        'secret'            => 'thekey',
+                        'default_controller'=> 'tester'
+                        'memcache'          => [
                             'host'      => 'localhost',
                             'port'      => 11211
                         ]
