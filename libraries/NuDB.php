@@ -20,7 +20,7 @@ class NuDB {
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();
         }
-
+        mysqli_set_charset($this->conn, 'utf8');
     }
 
     public function setQuery($q){
