@@ -8,5 +8,6 @@ $config         =   [
                             'database'  => 'dbname',
                             'prefix'    => 'nu_'
                         ],
-                        'secret'    => 'thekey'
+                        'secret'            => 'thekey',
+                        'default_controller'=> 'tester'
                     ];
