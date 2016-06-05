@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h2>GET /v1/category/<?=$id_category;?></h2>
+            <h3>GET /v1/category/<?=$id_category;?></h3>
             <hr class="star-primary">
         </div>
     </div>
