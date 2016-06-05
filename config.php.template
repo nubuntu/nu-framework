@@ -10,4 +10,8 @@ $config         =   [
                         ],
                         'secret'            => 'thekey',
                         'default_controller'=> 'tester'
+                        'memcache'          => [
+                            'host'      => 'localhost',
+                            'port'      => 11211
+                        ]
                     ];
