@@ -10,6 +10,8 @@ $config         =   [
                         ],
                         'secret'            => 'thekey',
                         'default_controller'=> 'tester'
+                        'apikey'            => '1067cce5bc8569b846f2e9e6f3a56ac1',
+                        'apihost'           => 'http://api.salestock.noercholis.com',
                         'memcache'          => [
                             'host'      => 'localhost',
                             'port'      => 11211
