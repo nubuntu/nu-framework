@@ -7,6 +7,8 @@ class Home extends BaseController {
         parent::__construct();
     }
 
-
-
+    public function index(){
+        $this->is_login();
+    }
+    
 }
