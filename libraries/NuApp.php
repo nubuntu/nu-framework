@@ -52,8 +52,8 @@ class NuApp{
     }
 
     public function run(){
-        $this->input                = new NuInput();
         $this->session              = new NuSession();
+        $this->input                = new NuInput();
         $this->load                 = new NuLoader();
         array_shift($this->uri);
 

@@ -1,0 +1,167 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="iso-8859-1">
+<title>;)</title>
+<meta name="generator" content="WYSIWYG Web Builder 11 - http://www.wysiwygwebbuilder.com">
+<link href="ui-lightness/jquery-ui.min.css" rel="stylesheet">
+<link href="ProjectWeb.css" rel="stylesheet">
+<link href="mutasi.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="jquery.ui.core.min.js"></script>
+<script src="jquery.ui.widget.min.js"></script>
+<script src="jquery.ui.datepicker.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $(".SlideMenu1_Folder a").click(function()
+   {
+      if ($(this).parent().find('ul').is(':hidden'))
+      {
+         $(this).parent().find('ul').show();
+      }
+      else
+      {
+         $(this).parent().find('ul').hide();
+      }
+   });
+   var jQueryDatePicker1Options =
+   {
+      dateFormat: 'mm/dd/yy',
+      changeMonth: false,
+      changeYear: false,
+      showButtonPanel: false,
+      showAnim: 'show'
+   };
+   $("#jQueryDatePicker1").datepicker(jQueryDatePicker1Options);
+   $("#jQueryDatePicker1").datepicker("setDate", "new Date()");
+   $("#jQueryDatePicker1").change(function()
+   {
+      $('#jQueryDatePicker1_input').attr('value',$(this).val());
+   });
+});
+</script>
+</head>
+<body>
+<div id="wb_Shape1" style="position:absolute;left:2px;top:0px;width:1432px;height:161px;z-index:0;">
+<img src="images/img0010.png" id="Shape1" alt="" style="width:1432px;height:161px;"></div>
+<div id="wb_Image1" style="position:absolute;left:28px;top:17px;width:353px;height:132px;z-index:1; font-family:verdana; font-size:50px;">
+<img src="" id="Image1" alt="">BRI PRIORITAS</div>
+<div id="SlideMenu1" style="position:absolute;left:2px;top:162px;width:404px;height:938px;z-index:2;">
+<ul>
+   <li class="SlideMenu1_Folder"><a>Informasi Rekening</a>
+      <ul>
+         <li><a href="./informasi_saldo.html">Informasi Saldo</a></li>
+         <li><a href="">Rekening Tabungan dan Giro</a></li>
+         <li><a href="">BRI Deposito</a></li>
+         <li><a href="">Tabungan Berjangka</a></li>
+         <li><a href="">Informasi Kartu Kredit</a></li>
+         <li><a href="">Pinjaman</a></li>
+         <li><a class="active" href="./mutasi.html">Mutasi Rekening</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Transfer Dana</a>
+      <ul>
+         <li><a href="">Daftar Rekening Tujuan</a></li>
+         <li><a href="">Transfer ke Rek BRI</a></li>
+         <li><a href="">Transfer ke Virtual Account</a></li>
+         <li><a href="./transfer.html">Transfer ke Rek Bank Lain</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Pembayaran</a>
+      <ul>
+         <li><a href="">Kartu Kredit</a></li>
+         <li><a href="">Telepon</a></li>
+         <li><a href="">Handphone</a></li>
+         <li><a href="">Internet</a></li>
+         <li><a href="">Listrik</a></li>
+         <li><a href="">Lainnya</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Pembelian</a>
+      <ul>
+         <li><a href="">Pulsa Isi Ulang</a></li>
+         <li><a href="">PLN Pra Bayar</a></li>
+         <li><a href="">Tiket</a></li>
+         <li><a href="">Lainnya</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>BRI ClickPay</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Fasilitas Layanan</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Status Transaksi</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>History Transaksi</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Administrasi</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Personalisasi</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>Informasi Lainnya</a>
+      <ul>
+      </ul>
+   </li>
+</ul>
+</div>
+<div id="wb_Logout1" style="position:absolute;left:1290px;top:68px;width:94px;height:23px;z-index:3;">
+<form name="logoutform" method="post" action="index.html" id="logoutform">
+<input type="hidden" name="form_name" value="logoutform">
+<input type="submit" name="logout" value="LOGOUT" id="Logout1">
+</form>
+</div>
+<input id="jQueryDatePicker1_input" name="jQueryDatePicker1" style="display:none" type="text" value="08/30/2016">
+<div id="jQueryDatePicker1" style="position:absolute;left:434px;top:259px;width:223px;height:191px;z-index:4;">
+</div>
+<div id="wb_Text1" style="position:absolute;left:434px;top:207px;width:482px;height:29px;z-index:5;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:24px;"><strong>MUTASI REKENING</strong></span></div>
+<div id="Html1" style="position:absolute;left:434px;top:472px;width:1326px;height:628px;z-index:6">
+<table width="945" border="3">
+  <tbody>
+    <tr>
+      <td colspan="6">INFORMASI TRANSFER</td>
+    </tr>
+    <tr>
+      <td width="317">Dari Rekening</td>
+      <td colspan="5">PRIMADOLLAR AUD 0035713572123</td>
+    </tr>
+    <tr>
+      <td>No. Rekening/ Nama Nasabah</td>
+      <td width="175">Jumlah</td>
+      <td width="173">Jenis Transfer</td>
+      <td width="88">Tanggal Mulai</td>
+      <td width="88">Tanggal Berakhir</td>
+      <td width="60">Tanggal Transfer Berikutnya</td>
+    </tr>
+    <tr>
+      <td>PRIMADOLLAR AUD 0035713572123 (AUD)/SUKAMTO</td>
+      <td>AUD 310,40</td>
+      <td>Tanggal Mendatang</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>29/08/2016</td>
+    </tr>
+    <tr>
+      <td>PRIMADOLLAR AUD 0035713572123 (AUD)/SUKAMTO</td>
+      <td>AUD 5000</td>
+      <td>Rutin</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>29/08/2016</td>
+    </tr>
+    <tr></div>
+</body>
+</html>

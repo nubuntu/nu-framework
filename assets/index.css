@@ -1,0 +1,140 @@
+body
+{
+   background-color: white;
+   /*background-image: url(images/index_bkgrnd.png);
+   background-repeat: repeat-x;*/
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+#Shape2
+{
+   border-width: 0;
+}
+#Shape1
+{
+   border-width: 0;
+}
+#Login1
+{
+   background-color: #FFFFFF;
+   border-color:#CCCCCC;
+   border-width:1px;
+   border-style: solid;
+   -moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+   color: #000000;
+   border-spacing: 6px;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   text-align: left;
+   width: 421px;
+   height: 228px;
+}
+#Login1 td
+{
+   padding: 0;
+}
+#Login1 .header
+{
+   background-color: blue;
+   color: #FFFFFF;
+   height: 16px;
+   padding: 4px 4px 4px 4px;
+   text-align: center;
+}
+#Login1 .label
+{
+   height: 16px;
+}
+#Login1 .row
+{
+   height: 30px;
+   text-align: left;
+}
+#Login1 .input
+{
+   background-color: #FFFFFF;
+   border-color: navy;
+   border-width: 1px;
+   border-style: solid;
+   -moz-border-radius: 2px;
+   -webkit-border-radius: 2px;
+   border-radius: 2px;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   width: 100%;
+   height: 30px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   padding: 6px 4px 6px 4px;
+}
+#Login1 .input:focus
+{
+   border-color: #66AFE9;
+   outline: 0;
+   -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+   -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+   box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+}
+#Login1 .button
+{
+   background-color: navy;
+   border-color: black;
+   border-width: 1px;
+   border-style: solid;
+   -moz-border-radius: 8px;
+   -webkit-border-radius: 8px;
+   border-radius: 8px;
+   color: #FFFFF0;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   padding: 10px 20px 10px 20px;
+}
+#Regis1 .button
+{
+   background-color: navy;
+   border-color: black;
+   border-width: 1px;
+   border-style: solid;
+   -moz-border-radius: 8px;
+   -webkit-border-radius: 8px;
+   border-radius: 8px;
+   color: #FFFFF0;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   padding: 10px 20px 10px 20px;
+}
+#Image1
+{
+   border: 0px #000000 solid;
+   padding: 0px 0px 0px 0px;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_Text1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px #F5FFFA solid;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+#wb_Text1 div
+{
+   text-align: center;
+}

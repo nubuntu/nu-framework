@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Class NuController
+ *
+ * @property NuLoader $load
+ * @property NuSession $session
+ * @property NuInput $input
+ */
+
 class NuController{
 
     protected $app;

@@ -13,6 +13,8 @@ class NuInput{
     }
 
     protected function clean_array($values){
+        if(count($values)<1)
+            return false;
         foreach ($values as $key => &$value){
             $value = $this->clean($value);
         }
@@ -22,7 +24,7 @@ class NuInput{
     public function get($input_name=false,$default=false){
         if(!$input_name)
             return $this->clean_array($_GET);
-        if(!isset($_GET[input_name]))
+        if(!isset($_GET[$input_name]))
             return $default;
         return $_GET[$input_name];
     }

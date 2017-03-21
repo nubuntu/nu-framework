@@ -1,0 +1,27 @@
+body
+{
+   background-color: #FF0000;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+#Shape1
+{
+   border-width: 0;
+}
+#Image1
+{
+   border-width: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#TextArt1
+{
+   border-width: 0;
+}

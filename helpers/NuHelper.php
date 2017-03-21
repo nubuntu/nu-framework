@@ -19,6 +19,10 @@ function array_to_xml($obj, $array)
     }
 }
 
+function redirect($url){
+    header('Location: '.$url);
+}
+
 function &getInstance(){
     return NuApp::getInstance();
 }

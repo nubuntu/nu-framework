@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="iso-8859-1">
+<title>BRI Priority</title>
+<meta name="generator" content="WYSIWYG Web Builder 11 - http://www.wysiwygwebbuilder.com">
+<link href="ui-lightness/jquery-ui.min.css" rel="stylesheet">
+<link href="ProjectWeb.css" rel="stylesheet">
+<link href="informasi_saldo.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="jquery.ui.core.min.js"></script>
+<script src="jquery.ui.widget.min.js"></script>
+<script src="jquery.ui.datepicker.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $(".SlideMenu1_Folder a").click(function()
+   {
+      if ($(this).parent().find('ul').is(':hidden'))
+      {
+         $(this).parent().find('ul').show();
+      }
+      else
+      {
+         $(this).parent().find('ul').hide();
+      }
+   });
+   var jQueryDatePicker1Options =
+   {
+      dateFormat: 'mm/dd/yy',
+      changeMonth: false,
+      changeYear: false,
+      showButtonPanel: false,
+      showAnim: 'show'
+   };
+   $("#jQueryDatePicker1").datepicker(jQueryDatePicker1Options);
+   $("#jQueryDatePicker1").datepicker("setDate", "");
+   $("#jQueryDatePicker1").change(function()
+   {
+      $('#jQueryDatePicker1_input').attr('value',$(this).val());
+   });
+});
+</script>
+</head>
+<body>
+<div id="wb_Shape1" style="position:absolute;left:2px;top:0px;width:1432px;height:161px;z-index:0; background-color:white;">
+<img src="" id="Shape1" alt="" style="width:1432px;height:161px;"></div>
+<div id="wb_Image1" style="position:absolute;left:28px;top:15px;width:353px;height:132px;z-index:1;font-size:50px;font-family:verdana;">
+<img src="" id="Image1" alt="">BRI PRIORITY</div>
+<div id="SlideMenu1" style="position:absolute;left:2px;top:162px;width:300px;height:938px;z-index:2;">
+<ul>
+  <li class="SlideMenu1_Folder"><a>Account Information</a>
+     <ul>
+        <li><a href="./informasi_saldo.html">Balance Information</a></li>
+        <!-- <li><a href="">Rekening Tabungan dan Giro</a></li>
+        <li><a href="">BRI Deposito</a></li>
+        <li><a href="">Tabungan Berjangka</a></li> -->
+        <!-- <li><a href="">Credit Card Information</a></li> -->
+        <li><a href="">Loan</a></li>
+        <!-- <li><a href="./mutasi.html">Account Mutation</a></li> -->
+     </ul>
+  </li>
+  <li class="SlideMenu1_Folder"><a>Transfer Fund</a>
+     <ul>
+        <!-- <li><a href="">Account Register</a></li>
+        <li><a href="">Transfer to BRI</a></li> -->
+        <li><a href="trsfrToVirAcc.html">Transfer to Virtual Account</a></li>
+        <li><a href="trsfr.html">Transfer to other BANK</a></li>
+     </ul>
+  </li>
+  <li class="SlideMenu1_Folder"><a>Payment</a>
+     <ul>
+        <li><a href="cc.html">Credit Card</a></li>
+        <!-- <li><a href="">Telephone</a></li> -->
+        <!-- <li><a href="">Handphone</a></li>
+        <li><a href="">Internet</a></li> -->
+        <!-- <li><a href="">Electricity</a></li> -->
+        <li><a href="other.html">Others</a></li>
+     </ul>
+  </li>
+   <!-- <li class="SlideMenu1_Folder"><a>Pembelian</a>
+      <ul>
+         <li><a href="">Pulsa Isi Ulang</a></li>
+         <li><a href="">PLN Pra Bayar</a></li>
+         <li><a href="">Tiket</a></li>
+         <li><a href="">Lainnya</a></li>
+      </ul>
+   </li> -->
+   <li class="SlideMenu1_Folder"><a>BRI ClickPay</a>
+      <ul>
+      </ul>
+   </li>
+   <!-- <li class="SlideMenu1_Folder"><a>Service Facility</a>
+      <ul>
+      </ul>
+   </li> -->
+   <li class="SlideMenu1_Folder"><a href="transsta.html">Transaction Status</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a href="transhis.html">Transaction History</a>
+      <ul>
+      </ul>
+   </li>
+   <!-- <li class="SlideMenu1_Folder"><a>Administration</a>
+      <ul>
+      </ul>
+   </li> -->
+   <!-- <li class="SlideMenu1_Folder"><a>Personalization</a>
+      <ul>
+      </ul>
+   </li> -->
+   <!-- <li class="SlideMenu1_Folder"><a>Other Information</a>
+      <ul>
+      </ul>
+   </li> -->
+</ul>
+</div>
+<div id="wb_Logout1" style="position:absolute;left:1140px;top:68px;width:94px;height:23px;z-index:3;">
+<form name="logoutform" method="post" action="index.html" id="logoutform">
+<input type="hidden" name="form_name" value="logoutform">
+<input type="submit" name="logout" value="LOGOUT" id="Logout1">
+</form>
+</div>
+<input id="jQueryDatePicker1_input" name="jQueryDatePicker1" style="display:none" type="text" value="">
+<div id="jQueryDatePicker1" style="position:absolute;left:1010px;top:266px;width:223px;height:191px;z-index:4;">
+</div>
+<div id="wb_Text1" style="position:absolute;left:434px;top:207px;width:482px;height:29px;z-index:5;text-align:left;">
+<span style="color:white;font-family:Arial;font-size:24px;"><strong>TRANSFER to other BANK</strong></span></div>
+<table style="position:absolute;left:350px;top:266px;width:630px;height:240px;z-index:6;" id="Table1">
+<tr>
+<td class="cell0"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">From Account</span></td>
+<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">:</span></td>
+<td colspan="3" class="cell2"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">160725889988663</span></td>
+</tr>
+<tr>
+<td class="cell3"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">To Account</span></td>
+<td class="cell4"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">:</span></td>
+<td colspan="3" class="cell5"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">127555114448885</span></td>
+</tr>
+<tr>
+<td class="cell0"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">Total</span></td>
+<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">:</span></td>
+<td colspan="3" class="cell2"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">Rp. 5.000.000.000, 00</span></td>
+</tr>
+<tr>
+<td class="cell3"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">Currency</span></td>
+<td class="cell4"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">:</span></td>
+<td colspan="3" class="cell5"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;"> <form><input type="radio" name="currency" value="rupiah" checked>Rp <input type="radio" name="currency" value="dolar"> $    </form>     </span></td>
+</tr>
+<tr>
+<td class="cell0"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">News</span></td>
+<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">:</span></td>
+<td colspan="3" class="cell2"><span style="color:#000000;font-family:Arial;font-size:15px;line-height:21px;">Please saving my money</span></td>
+</tr>
+</table>
+<input type="submit" id="Button1" name="SENT" value="SENT" style="position:absolute;left:430px;top:529px;width:150px;height:40px;z-index:7;">
+<input type="submit" id="Button2" name="SAVE" value="SAVE" style="position:absolute;left:735px;top:529px;width:150px;height:40px;z-index:8;">
+</body>
+<footer style="position:absolute; margin:600px; color:grey;">
+  &copy; BRI Priority 2017
+</footer>
+</html>

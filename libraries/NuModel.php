@@ -11,31 +11,23 @@ class NuModel extends NuController{
     protected $parameter        = [];
 
     public function __construct(){
-        $this->app              =& getInstance();
-        foreach (get_object_vars($this->app) as $key => $obj){
-            $this->$key             = $obj;
-        }
+        parent::__construct();
         if(!empty($this->table_name) && !empty($this->table_key))
             $this->setTable();
     }
 
-    public function __get($name){
-        if(property_exists($this,$name))
-            return $this->$name;
-        if(property_exists($this->app,$name)){
-            $this->$name            = $this->app->$name;
-            return $this->$name;
-        }
+    public function reads($callback=false){
+        return $this->getRows($callback);
+    }
+
+    public function read_where($where=[]){
+        return $this->where($where)->getRow();
     }
 
     public function read_by($field_name,$field_value){
         return $this->where([
             $field_name => $field_value
         ])->getRow();
-    }
-
-    public function reads($callback=false){
-        return $this->getRows($callback);
     }
 
     public function reads_where($where=[],$callback=false){
